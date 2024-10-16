@@ -2,7 +2,7 @@
 public class StackArrayDemo {
 
 	public static void main(String[] args) {
-		StackArray stack = new StackArray(5);
+		StackLinkedList stack = new StackLinkedList();
 		
 		VideoGame v1 = new VideoGame("Legend of Zelda", 'T');
 		VideoGame v2 = new VideoGame("Animal Crossing", 'E');

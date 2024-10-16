@@ -1,22 +1,19 @@
+import java.util.LinkedList;
 
 public class StackLinkedList {
 	private LinkedList<VideoGame> data;
-	private int top;
+	private VideoGame top;
 	private int size;
 	
-	public StackLinkedList(int s) {
-		data = new VideoGame[s];
-		top = -1;
+	public StackLinkedList() {
+		data = new LinkedList<VideoGame>();
+		top = null;
 		size = 0;
 	}
 	
 	public void push(VideoGame newGame) {
-		if(size == data.length) {
-			System.out.println("Can't push, stack is full...");
-			return;
-		}
-		top += 1;
-		data[top] = newGame;
+		data.addFirst(newGame);
+		top = data.getFirst();
 		size += 1;
 	}
 	
@@ -25,16 +22,13 @@ public class StackLinkedList {
 			System.out.println("Error: stack is empty");
 			return;
 		}
-		data[top] = null;
-		top += -1;
+		data.removeFirst();
+		top = data.getFirst();
 		size += -1;
 	}
 	
 	public VideoGame peak() {
-		if(size != 0) {
-			return data[top];
-		}
-		return null;
+		return top;
 	}
 	
 	public boolean isEmpty() {
@@ -45,8 +39,9 @@ public class StackLinkedList {
 	}
 	
 	public void printStack() {
-		for(int i = size-1; i >= 0; i--) {
-			System.out.println(data[i].getName() + " - Rated: " + data[i].getRating());
+		for(int i = 0; i < data.size(); i++) {
+			VideoGame VG = data.get(i);
+			System.out.println(VG.getName() + " - Rated: " + VG.getRating());
 		}
 	}
 }
