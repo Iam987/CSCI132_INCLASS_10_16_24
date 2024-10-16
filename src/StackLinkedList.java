@@ -39,8 +39,7 @@ public class StackLinkedList {
 	}
 	
 	public void printStack() {
-		for(int i = 0; i < data.size(); i++) {
-			VideoGame VG = data.get(i);
+		for(VideoGame VG : data) {
 			System.out.println(VG.getName() + " - Rated: " + VG.getRating());
 		}
 	}
